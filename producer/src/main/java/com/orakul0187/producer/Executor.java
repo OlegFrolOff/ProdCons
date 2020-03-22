@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Executor {
     private MessageGen messageGen;
     private MessageProd messageProd;
-    private long messageCounter = 0;
+    private long messageCounter = 0L;
 
     @Autowired
     public Executor(MessageGen messageGen, MessageProd messageProd) {
