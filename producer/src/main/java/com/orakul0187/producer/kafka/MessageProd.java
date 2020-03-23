@@ -12,7 +12,6 @@ public class MessageProd {
     private KafkaTemplate<Long, String> kafkaTemplate;
     @Value(value = "${kafka.topic.name}")
     private String topicName;
-
     public void sendMessage(Long key, String value) {
         kafkaTemplate.send(topicName, key, value);
     }
