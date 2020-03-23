@@ -3,6 +3,7 @@ package com.orakul0187.producer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import com.orakul0187.other.Rand;
 
 @Component
 @PropertySource("classpath:application.properties")
