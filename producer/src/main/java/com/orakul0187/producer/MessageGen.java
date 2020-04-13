@@ -5,7 +5,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import com.orakul0187.other.Rand;
 
-@Component
+//@Component
 @PropertySource("classpath:application.properties")
 public class MessageGen {
     @Value("${text}")

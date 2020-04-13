@@ -8,12 +8,12 @@ public class BankAccount implements Serializable {
     private String firstName;
     private String lastName;
     private String patronymic;
-    private long accountNumber;
+    private int accountNumber;
 
     public BankAccount() {
     }
 
-    public BankAccount(UUID uuid, String firstName, String lastName, String patronymic, long accountNumber) {
+    public BankAccount(UUID uuid, String firstName, String lastName, String patronymic, int accountNumber) {
         this.uuid = uuid;
         this.firstName = firstName;
         this.lastName = lastName;
