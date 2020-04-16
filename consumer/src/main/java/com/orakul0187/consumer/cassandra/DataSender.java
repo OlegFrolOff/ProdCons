@@ -18,7 +18,7 @@ public class DataSender {
     private final String CLEAR_TABLE = "TRUNCATE TABLE bankAccounts;";
 
     @PostConstruct
-    public void clearTable() {
+    public void init() {
         session = cassandraConnector.getSession();
         session.execute("USE tcproject;");
         ps = session.prepare("INSERT INTO bankAccounts(uuid, accnumber, firstname, patronymic, lastname) VALUES(?,?,?,?,?);");
