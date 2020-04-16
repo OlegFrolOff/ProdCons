@@ -2,6 +2,7 @@ package com.orakul0187.factories;
 
 import com.orakul0187.entities.BankAccount;
 import com.orakul0187.other.Rand;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,12 +13,12 @@ import java.util.Map;
 import java.util.UUID;
 
 public class BankAccountFactory implements BankAccGrantor {
-    private int accountNumber = 1;
+    private long accountNumber = 1;
+    String folderPath;
     private Map<Integer, Map<String, List<String>>> clientsDataValues;
 
-
-    public BankAccountFactory() {
-        String folderPath = "D:\\learning-project\\NeoProject\\ProdCons\\common_lib\\src\\main\\resources\\usernames";
+    public BankAccountFactory(String folderPath) {
+        this.folderPath = folderPath;
         try {
             getFromTextFiles(folderPath);
         } catch (IOException e) {
@@ -66,15 +67,15 @@ public class BankAccountFactory implements BankAccGrantor {
         String firstName;
         String lastName;
         String patronymic;
-        int accountNumber = this.accountNumber++;
+        long accountNumber = this.accountNumber++;
         int gender = Rand.randomInt(0, 1);
         int namesLength = clientsDataValues.get(gender).get("names").size();
         int surnamesLength = clientsDataValues.get(gender).get("surnames").size();
         int patronymicsLength = clientsDataValues.get(gender).get("patronymics").size();
 
-        firstName = clientsDataValues.get(gender).get("names").get(Rand.randomInt(0, namesLength - 1));
-        patronymic = clientsDataValues.get(gender).get("patronymics").get(Rand.randomInt(0, patronymicsLength - 1));
-        lastName = clientsDataValues.get(gender).get("surnames").get(Rand.randomInt(0, surnamesLength - 1));
+        firstName = clientsDataValues.get(gender).get("names").get(Rand.randomInt(0, namesLength - 1)).trim();
+        patronymic = clientsDataValues.get(gender).get("patronymics").get(Rand.randomInt(0, patronymicsLength - 1)).trim();
+        lastName = clientsDataValues.get(gender).get("surnames").get(Rand.randomInt(0, surnamesLength - 1)).trim();
         return new BankAccount(uuid, firstName, lastName, patronymic, accountNumber);
     }
 }

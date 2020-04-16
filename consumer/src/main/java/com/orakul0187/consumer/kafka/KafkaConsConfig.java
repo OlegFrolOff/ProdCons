@@ -3,8 +3,6 @@ package com.orakul0187.consumer.kafka;
 import com.orakul0187.entities.BankAccount;
 import com.orakul0187.serialize.BankAccountDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.common.serialization.LongDeserializer;
-import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.UUIDDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
