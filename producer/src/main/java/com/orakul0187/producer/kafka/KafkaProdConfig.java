@@ -22,7 +22,7 @@ public class KafkaProdConfig {
     @Value("${kafka.bootstrapAddress}")
     private String bootstrapAddress;
 
-    public ProducerFactory<UUID, BankAccount> prodFactory() {
+    private ProducerFactory<UUID, BankAccount> prodFactory() {
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, UUIDSerializer.class);

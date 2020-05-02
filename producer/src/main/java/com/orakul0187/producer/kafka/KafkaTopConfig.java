@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@PropertySource("classpath:application.properties")
 public class KafkaTopConfig {
     @Value("${kafka.bootstrapAddress}")
     private String bootstrapAddress;
