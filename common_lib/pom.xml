@@ -22,9 +22,6 @@
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>../account_creator</module>
-    </modules>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -38,7 +35,6 @@
             <version>1.18.12.0</version>
             <type>pom</type>
         </dependency>
-
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.13</artifactId>
