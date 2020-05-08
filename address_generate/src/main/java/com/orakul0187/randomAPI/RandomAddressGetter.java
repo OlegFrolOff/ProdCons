@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RandomAddressGetter {
@@ -22,9 +23,23 @@ public class RandomAddressGetter {
     @Autowired
     RestTemplate rt;
 
-    public List<Address> getAddress(int quantity) {
-        RandomApiResponseEntity res = rt.getForObject(randApiAddress + key + refId + noinfo + results + quantity, RandomApiResponseEntity.class);
-        res.getResults().forEach(System.out::println);
-        return res.getResults();
+    List<Address> addressList;
+
+    {
+        addressList = new ArrayList<>();
+    }
+
+    public Address getAddress(){
+        if(addressList.isEmpty()){
+            createAddressList();
+        }
+        Address address = addressList.remove(addressList.size()-1);
+        System.out.println(address);
+        return address;
+    }
+
+    private void createAddressList() {
+        RandomApiResponseEntity res = rt.getForObject(randApiAddress + key + refId + noinfo + results, RandomApiResponseEntity.class);
+        addressList.addAll(res.getResults());
     }
 }

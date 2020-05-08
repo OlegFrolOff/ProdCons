@@ -55,7 +55,7 @@ public class KafkaConfig {
         KStream<UUID, Address> addressKStream = accountsKTable.
                 toStream().
                 filter((uuid, bankAccount) -> bankAccount.getLastName().startsWith("А")).
-                flatMapValues((v) -> randomAddressGetter.getAddress(1));
+                mapValues((v) -> randomAddressGetter.getAddress());
         addressKStream.to(outputTopicName, Produced.with(Serdes.UUID(), new JsonSerde<>(Address.class)));
         return streamsBuilder.build();
     }

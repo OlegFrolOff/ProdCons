@@ -1,6 +1,6 @@
 package com.orakul0187;
 
-import com.orakul0187.factories.BankAccountFactory;
+import com.orakul0187.factories.AccountFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ public class AccCreatorConf {
     String path;
 
     @Bean
-    public BankAccountFactory bankAccFactory() {
-        return new BankAccountFactory(path);
+    public AccountFactory accountFactory() {
+        return new AccountFactory(path);
     }
 }

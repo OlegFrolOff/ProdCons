@@ -1,7 +1,7 @@
 package com.orakul0187;
 
-import com.orakul0187.entities.BankAccount;
-import com.orakul0187.factories.BankAccountFactory;
+import com.orakul0187.entities.Account;
+import com.orakul0187.factories.AccountFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/")
 public class AccCreatorRestController {
     @Autowired
-    BankAccountFactory bankAccFactory;
+    AccountFactory bankAccFactory;
 
     @RequestMapping("/getRandomAccount")
-    public BankAccount getBankAccount() {
-        return bankAccFactory.getBankAccount();
+    public Account getBankAccount() {
+        return bankAccFactory.getAccount();
     }
 }
