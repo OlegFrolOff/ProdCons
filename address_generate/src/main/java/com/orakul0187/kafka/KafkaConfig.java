@@ -39,7 +39,7 @@ public class KafkaConfig {
     @Autowired
     RandomAddressGetter randomAddressGetter;
 
-    private KafkaStreams accountsKstream;
+    //private KafkaStreams accountsKstream;
 
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kafkaStreamsConfiguration() {
@@ -59,27 +59,4 @@ public class KafkaConfig {
         addressKStream.to(outputTopicName, Produced.with(Serdes.UUID(), new JsonSerde<>(Address.class)));
         return streamsBuilder.build();
     }
-
-//    @PostConstruct
-//    private void startService(){
-//        Properties prop = new Properties();
-//        prop.put(StreamsConfig.APPLICATION_ID_CONFIG, "address_generate");
-//        prop.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-//
-//        StreamsBuilder builder = new StreamsBuilder();
-//
-//        KTable<UUID, BankAccount> accountsKTable = builder.table(inputTopicName, Consumed.with(Serdes.UUID(), new JsonSerde<>(BankAccount.class)));
-//        KStream<UUID, Address> addressKStream = accountsKTable.
-//                toStream().
-//                filter((uuid, bankAccount) -> bankAccount.getLastName().startsWith("А")).
-//                flatMapValues((v) -> randomAddressGetter.getAddress(1));
-//        addressKStream.to(outputTopicName, Produced.with(Serdes.UUID(), new JsonSerde<>(Address.class)));
-//        accountsKstream = new KafkaStreams(builder.build(), prop);
-//        accountsKstream.start();
-//    }
-//
-//    @PreDestroy
-//    private void stopServ(){
-//        accountsKstream.close();
-//    }
 }

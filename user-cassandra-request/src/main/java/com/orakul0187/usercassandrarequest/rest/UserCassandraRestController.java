@@ -14,6 +14,7 @@ public class UserCassandraRestController {
     @Autowired
     DataGetter dataGetter;
 
+    //TODO: использовать Optional
     @RequestMapping("/getAccount")
     public String getAccount(@RequestParam String uuid){
         String response = dataGetter.getAccountData(UUID.fromString(uuid));

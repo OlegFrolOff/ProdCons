@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.UUID;
 
+//TODO: переписать на Spring Data Cassandra
 public class DataGetter {
     @Value("${cassandra.prepQuery}")
     String prepQuery;
